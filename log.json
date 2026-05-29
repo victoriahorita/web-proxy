@@ -1,0 +1,6 @@
+{"id": "req205036040231", "timestamp": "28-05-2026 20:50:36", "url": "https://www.sitex.com", "acao": "bloqueado"}
+{"id": "req205104439741", "timestamp": "28-05-2026 20:51:04", "url": "https://www.lipsum.com/", "acao": "filtrado"}
+{"id": "req205248417702", "timestamp": "28-05-2026 20:52:48", "url": "https://google.com", "acao": "permitido"}
+{"id": "req205334090817", "timestamp": "28-05-2026 20:53:34", "url": "https://joguinhos.io", "acao": "bloqueado"}
+{"id": "req205447165092", "timestamp": "28-05-2026 20:54:47", "url": "https://github.com", "acao": "permitido"}
+{"id": "req205525824654", "timestamp": "28-05-2026 20:55:25", "url": "https://canva.com", "acao": "permitido"}
