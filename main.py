@@ -19,8 +19,8 @@ with open("words.json", "r", encoding="utf-8") as file:
 def proxy(url):
     
     # Valida url
-    if not url.startswith(("http://", "https://")):
-        url = "https://" + url
+    if not url.startswith(("http://")):
+        url = "http://" + url
 
     parsed_url = urlparse(url)
 
