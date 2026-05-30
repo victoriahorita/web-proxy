@@ -2,6 +2,18 @@ import json
 from datetime import datetime 
 import re 
 
+# Ler arquivos Json
+def load_blocked_sites():
+    with open("blocked.json", "r", encoding="utf-8") as file:
+        blocked_list = json.load(file)["bloqueados"]
+        return blocked_list
+
+def load_filter_words():
+    with open("words.json", "r", encoding="utf-8") as file:
+        filter_words = json.load(file)
+        return filter_words
+
+
 # Logs
 def create_log(url, action):
     with open("log.json", "a", encoding="utf-8") as f:

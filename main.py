@@ -1,23 +1,20 @@
 from flask import Flask, Response
 import requests
-from utils import create_log, filter_content, blocked_page
+from utils import create_log, filter_content, blocked_page, load_blocked_sites, load_filter_words
 import json
 from urllib.parse import urlparse
 import re
 
 app = Flask(__name__)
 
-# Arquivos Json
-with open("blocked.json", "r", encoding="utf-8") as file:
-    blocked_list = json.load(file)["bloqueados"]
-
-with open("words.json", "r", encoding="utf-8") as file:
-    filter_words = json.load(file)
-
 # Proxy
 @app.route("/<path:url>")
 def proxy(url):
     
+    # Lê arquivos json a cada requisição
+    filter_words = load_filter_words()
+    blocked_list = load_blocked_sites()
+
     # Valida url
     if not url.startswith(("http://")):
         url = "http://" + url
@@ -69,4 +66,4 @@ def proxy(url):
         return f"Erro ao acessar URL: {str(e)}", 500
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)
