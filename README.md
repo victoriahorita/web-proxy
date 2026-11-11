@@ -111,40 +111,27 @@ O proxy utiliza dois arquivos de configuração:
 * `blocked.json`: contém a lista de domínios bloqueados.
 * `words.json`: contém as palavras que serão filtradas no conteúdo das páginas.
 
-### Adicionando ou Removendo Sites Bloqueados
+### Gerenciando Sites Bloqueados
 
-Para bloquear ou desbloquear um site, basta editar o arquivo `blocked.json` e adicionar ou remover o domínio desejado.
+Os sites bloqueados podem ser gerenciados diretamente pela interface do proxy. Na página inicial clique em **Sites Bloqueados** ou acesse `http://localhost:5000/blocked`. Nessa página é possível:
 
-Exemplo:
+- `Adicionar um site`: digite o domínio no campo e clique em **Adicionar**.
+- ``Excluir um site``: clique em **Excluir** ao lado do domínio na lista.
 
-```json
-{
-    "bloqueados": [
-        "google.com",
-        "github.com",
-        "lipsum.com"
-    ]
-}
-```
+As alterações são gravadas automaticamente no arquivo `blocked.json`. Também é possível editar esse arquivo manualmente.
 
-### Adicionando ou Removendo Palavras Filtradas
+### Gerenciando Palavras Filtradas
 
-Para adicionar ou remover palavras sujeitas à filtragem, edite o arquivo `words.json`.
+As palavras filtradas também são gerenciadas pela interface. Na página inicial, clique em **Alterar Filtros** ou acesse `http://localhost:5000/words`. Nessa página é possível:
 
-Exemplo:
+- ``Adicionar uma palavra``: preencha os campos *Palavra bloqueada* e *Substituir por* e clique em **Adicionar**. Se a palavra já existir, a substituição é atualizada.
+- ``Excluir uma palavra``: clique em **Excluir** ao lado do par na lista.
 
-```json
-{
-    "proxy": "******",
-    "teste": "******"
-}
-```
+As alterações são gravadas automaticamente no arquivo `words.json`, que também pode ser editado manualmente
 
 ### Atualização Dinâmica das Configurações
 
-As listas de sites bloqueados e palavras filtradas são carregadas a cada requisição processada pelo proxy. Após salvar alterações nos arquivos `blocked.json` ou `words.json`, as novas regras passam a ser utilizadas automaticamente nas próximas requisições, sem a necessidade de reiniciar o servidor.
-
-A opção por utilizar arquivos JSON em vez de implementar endpoints de gerenciamento foi uma decisão de projeto. Como o objetivo principal do trabalho é o desenvolvimento e funcionamento do proxy HTTP, optou-se por uma solução mais simples para a administração das listas, mantendo o foco nas funcionalidades de bloqueio, filtragem e registro das requisições. Ainda assim, a solução permite a atualização dinâmica das regras durante a execução da aplicação.
+As listas de sites bloqueados e palavras filtradas são carregadas a cada requisição processada pelo proxy. Por isso, qualquer alteração feita pela interface web, ou diretamente nos arquivos `blocked.json` e `words.json`, passa a valer já na próxima requisição, sem a necessidade de reiniciar o servidor.
 
 ## Exemplo de uso
 
